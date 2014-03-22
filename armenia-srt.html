@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+    <link rel="stylesheet" href="css/subfreaqs.css"/>  
+    <script>
+      // ensure the web page (DOM) has loaded
+      document.addEventListener("DOMContentLoaded", function () {
+ 
+         // Create a popcorn instance by calling Popcorn("#id-of-my-video")
+         var pop = Popcorn("#video");
+ 
+         // add a footnote at 2 seconds, and remove it at 6 seconds
+         pop.footnote({
+           start: 2,
+           end: 6,
+           text: "Pop!",
+           target: "footnotediv"
+         });
+ 
+         // play the video right away
+         pop.play();
+ 
+      }, false);
+    </script>
+  </head>
+  <body>
+    <video id="video" data-timeline-sources="data/armenia-augmented.srt"
+      controls
+      width='250px'>
+      <source src="video/armenia.mp4">
+      <source src="video/armenia.webm">
+      <p>Your user agent does not support the HTML5 Video element.</p>
+    </video>
+    <!-- <div id="footnote-container"></div> -->
+    <div id="footnotediv"></div>
+    <div id="map-container"></div>
+    <div id="iframe-container"></div>
+  </body>
+</html>
