@@ -23,40 +23,48 @@
       document.addEventListener("DOMContentLoaded", function () {
  
          // Create a popcorn instance by calling Popcorn("#id-of-my-video")
-         var pop = Popcorn("#video");
+         // var pop = Popcorn("#video");
  
          // play the video right away
-         pop.play();
+         // pop.play();
  
       }, false);
     </script>
-    <script type="text/javascript">
-      function setSRT (srtFile) {
-        console.log(srtFile);
 
-        $("#video").attr("data-timeline-sources", srtFile)
-        $videoCopy = $("#video").clone();
+    <script type="text/javascript">
+      function setSRT (videoID) {
+        console.log(videoID);
+
+        $(".videoWrapper").hide()
+        console.log();
+        $("#video-abjad").parent().show();
+
+        // $("#video").attr("data-timeline-sources", srtFile)
+        // $videoCopy = $("#video").clone();
+
+        // var video = getElementById("video");
+        // video.load();
         
-        $("#video").replaceWith($videoCopy);
+        // $("#video").replaceWith($videoCopy);
         
         // $("#videoWrapper").clone()
         // $('.anthem').clone().insertAfter(".smallBox");
+
 
 
       }
     </script>
   </head>
   <body>
-    <div id="videoWrapper">
-      <video id="video" class="anthem" data-timeline-sources="data/armenia.srt"
+    <div class="videoWrapper">
+      <video id="video-regular" class="video" class="anthem" data-timeline-sources="data/armenia.srt"
       controls
       width='250px'>
         <source src="video/armenia.mp4">
         <source src="video/armenia.webm">
         <p>Your user agent does not support the HTML5 Video element.</p>
       </video>
-    </div>
-    
+    </div>  
 
     <div class="btn-group">
       <div class="btn-group">
@@ -65,12 +73,10 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#" onclick="setSRT('data/armenia.srt')">Regular</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-abjad.srt')">Abjad</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-augmented.srt')">Augemented Easy</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-aug-100.srt')">Augemented Medium</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-aug-2000.srt')">Augemented Hard</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-IPA.srt')">IPA</a></li>
+          <li><a href="index.html">Regular</a></li>
+          <li><a href="#" >Augemented Easy</a></li>
+          <li><a href="armenia-hard.html" >Augemented Hard</a></li>
+          <li><a href="#" >IPA</a></li>
         </ul>
       </div>
     </div>

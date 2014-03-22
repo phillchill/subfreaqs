@@ -31,24 +31,51 @@
       }, false);
     </script>
     <script type="text/javascript">
-      function setSRT (srtFile) {
-        console.log(srtFile);
+      function setSRT (videoID) {
+        console.log(videoID);
 
-        $("#video").attr("data-timeline-sources", srtFile)
-        $videoCopy = $("#video").clone();
+        $(".videoWrapper").hide()
+        $("#"+videoID).show();
+
+        // $("#video").attr("data-timeline-sources", srtFile)
+        // $videoCopy = $("#video").clone();
+
+        // var video = getElementById("video");
+        // video.load();
         
-        $("#video").replaceWith($videoCopy);
+        // $("#video").replaceWith($videoCopy);
         
         // $("#videoWrapper").clone()
         // $('.anthem').clone().insertAfter(".smallBox");
+
 
 
       }
     </script>
   </head>
   <body>
-    <div id="videoWrapper">
-      <video id="video" class="anthem" data-timeline-sources="data/armenia.srt"
+    <div class="videoWrapper">
+      <video id="video-regular" class="video" class="anthem" data-timeline-sources="data/armenia.srt"
+      controls
+      width='250px'>
+        <source src="video/armenia.mp4">
+        <source src="video/armenia.webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+    </div>
+
+    <div class="videoWrapper">
+      <video id="video-abjad" class="video" class="anthem" data-timeline-sources="data/armenia-abjad.srt"
+      controls
+      width='250px'>
+        <source src="video/armenia.mp4">
+        <source src="video/armenia.webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+    </div>
+
+    <div class="videoWrapper hidden">
+      <video id="video-augmented" class="video" class="anthem" data-timeline-sources="data/armenia-augmented.srt"
       controls
       width='250px'>
         <source src="video/armenia.mp4">
@@ -57,6 +84,15 @@
       </video>
     </div>
     
+    <div class="videoWrapper hidden">
+      <video id="video-aug-2000" class="video" class="anthem" data-timeline-sources="data/armenia-aug-2000.srt"
+      controls
+      width='250px'>
+        <source src="video/armenia.mp4">
+        <source src="video/armenia.webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+    </div>
 
     <div class="btn-group">
       <div class="btn-group">
@@ -65,12 +101,12 @@
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="#" onclick="setSRT('data/armenia.srt')">Regular</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-abjad.srt')">Abjad</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-augmented.srt')">Augemented Easy</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-aug-100.srt')">Augemented Medium</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-aug-2000.srt')">Augemented Hard</a></li>
-          <li><a href="#" onclick="setSRT('data/armenia-IPA.srt')">IPA</a></li>
+          <li><a href="#" onclick="setSRT('video-regular')">Regular</a></li>
+          <li><a href="#" onclick="setSRT('video-abjad')">Abjad</a></li>
+          <li><a href="#" onclick="setSRT('video-augmented')">Augemented Easy</a></li>
+          <li><a href="#" onclick="setSRT('video-aug-2000')">Augemented Hard</a></li>
+          <!-- <li><a href="#" onclick="setSRT('data/armenia-aug-100.srt')">Augemented Medium</a></li> -->
+          <!-- <li><a href="#" onclick="setSRT('data/armenia-IPA.srt')">IPA</a></li> -->
         </ul>
       </div>
     </div>
